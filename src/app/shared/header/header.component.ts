@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -9,10 +11,19 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class HeaderComponent {
 
-  constructor( private usuarioSvc: UsuarioService) {}
+  public usuario: Usuario;
+
+  constructor( private usuarioSvc: UsuarioService,
+               private sanitizer: DomSanitizer ) {
+    this.usuario = this.usuarioSvc.usuario;
+  }
    
   logout() {
     this.usuarioSvc.logout()
+  }
+
+  getSantizeUrl(url : string) {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
 }

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { SanitizedHtmlPipe } from '../pipes/sanitized-html.pipe';
 
 
 
@@ -12,7 +13,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
   declarations: [
     BreadcrumbsComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    SanitizedHtmlPipe
   ],
   exports: [
     BreadcrumbsComponent,
